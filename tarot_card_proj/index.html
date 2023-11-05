@@ -27,9 +27,7 @@
 
         <!-- column -->
         <div class="column-info">
-          <p class="top-right2">
-            You currently have 0 cards for this row &gt&gt
-          </p>
+          <p class="top-right2">You currently have 0 cards &gt&gt</p>
           <section class="top-right">
             <p class="pick-cards">
               Pick how many cards for your current row? <br />
@@ -47,26 +45,20 @@
         <section class="center-card">
           <img
             class="center-pic"
-            src="card_pics/world.jpg"
-            alt="picture of nursing baby"
+            src=""
+            alt="A Tarot Card"
             width="120"
             height="180"
           />
-          <button class="btn next-card">Get Card</button>
+
+          <button class="btn next-card center-btn">Flip Card</button>
         </section>
         <!--center card image-->
 
         <div class="bottom">
           <section class="bottom-left">
             <p class="collection">These are your cards so far!</p>
-            <div class="collected">
-              As you can see, once there's enough text in this box, the box will
-              grow scroll bars... that's why we call it a scroll box! You could
-              also place an image into the scroll box. <br />
-              As you can see, once there's enough text in this box, the box will
-              grow scroll bars... that's why we call it a scroll box! You could
-              also place an image into the scroll box.
-            </div>
+            <p class="collected"></p>
           </section>
           <div class="all-cards">
             <button class="btn cards-btn">View all cards</button>
@@ -76,35 +68,16 @@
         <div class="bottom-right">
           <div class="modal hidden">
             <!-- <h1 class="modal-header">I'm a modal window 😍</h1> -->
-            <p class="modal-content">
-              <img
-                class="row1 modal-card"
-                src="card_pics/world.jpg"
-                alt="tarot cards"
-              />
-              <img
-                class="row2 modal-card"
-                src="card_pics/devil.jpg"
-                alt="picture of nursing baby"
-              />
-
-              <img
-                class="row3 modal-card"
-                src="card_pics/tower.jpg"
-                alt="picture of nursing baby"
-              />
-
-              <img
-                class="row4 modal-card"
-                src="card_pics/justice.jpg"
-                alt="picture of nursing baby"
-              />
-
-              <img
-                class="row5 modal-card"
-                src="card_pics/lovers.jpg"
-                alt="picture of nursing baby"
-              />
+            <p id="showcase" class="modal-content">
+              <img class="row1 modal-card hidden" src="" alt="tarot card" />
+              <!-- <br /> -->
+              <img class="row2 modal-card hidden" src="" alt="tarot card" />
+              <!-- <br /> -->
+              <img class="row3 modal-card hidden" src="" alt="tarot card" />
+              <!-- <br /> -->
+              <img class="row4 modal-card hidden" src="" alt="tarot card" />
+              <!-- <br /> -->
+              <img class="row5 modal-card hidden" src="" alt="tarot card" />
             </p>
           </div>
           <div class="overlay hidden"></div>
@@ -112,6 +85,7 @@
       </div>
       <!--center and bottom of page^^^^ -->
     </main>
+    <d class="cursor"></d>
     <script src="app.js"></script>
   </body>
 </html>

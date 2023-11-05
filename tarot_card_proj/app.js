@@ -1,85 +1,88 @@
 `use strist`;
 
 // variables of all of the Tarot Cards
-const chariot = "card_pics/chariot.jpg";
-const aceOfCups = "card_pics/Cups01.jpg";
-const twoOfCups = "card_pics/Cups02.jpg";
-const threOfCups = "card_pics/Cups03.jpg";
-const fourOfCups = "card_pics/Cups04.jpg";
-const fiveOfCups = "card_pics/Cups05.jpg";
-const sixOfCups = "card_pics/Cups06.jpg";
-const sevenOfCups = "card_pics/Cups07.jpg";
-const eightOfCups = "card_pics/Cups08.jpg";
-const nineOfCups = "card_pics/Cups09.jpg";
-const tenOfCups = "card_pics/Cups10.jpg";
-const pageOfCups = "card_pics/Cups11.jpg";
-const knightOfCups = "card_pics/Cups12.jpg";
-const queenOfCups = "card_pics/Cups13.jpg";
-const kingOfCups = "card_pics/Cups14.jpg";
-const death = "card_pics/death.jpg";
-const devil = "card_pics/devil.jpg";
-const emperor = "card_pics/emperor.jpg";
-const empress = "card_pics/empress.jpg";
-const fool = "card_pics/fool.jpg";
-const hangedMan = "card_pics/hangedMan.jpg";
-const hermit = "card_pics/hermit.jpg";
-const hierophant = "card_pics/hierophant.jpg";
-const highPriestess = "card_pics/highPriestess.jpg";
-const judgement = "card_pics/judgement.jpg";
-const justice = "card_pics/justice.jpg";
-const lovers = "card_pics/lovers.jpg";
-const magician = "card_pics/magician.jpg";
-const moon = "card_pics/moon.jpg";
-const aceofPents = "card_pics/Pents01.jpg";
-const twoOfPents = "card_pics/Pents02.jpg";
-const threOfPents = "card_pics/Pents03.jpg";
-const fourOfPents = "card_pics/Pents04.jpg";
-const fiveOfPents = "card_pics/Pents05.jpg";
-const sixOfPents = "card_pics/Pents06.jpg";
-const sevenOfPents = "card_pics/Pents07.jpg";
-const eightOfPents = "card_pics/Pents08.jpg";
-const nineOfPents = "card_pics/Pents09.jpg";
-const tenOfPents = "card_pics/Pents10.jpg";
-const pageOfPents = "card_pics/Pents11.jpg";
-const knightOfPents = "card_pics/Pents12.jpg";
-const queenOfPents = "card_pics/Pents13.jpg";
-const kingOfPents = "card_pics/Pents14.jpg";
-const star = "card_pics/star.jpg";
-const strength = "card_pics/strength.jpg";
-const sun = "card_pics/sun.jpg";
-const aceofSwords = "card_pics/Swords01.jpg";
-const twoOfSwords = "card_pics/Swords02.jpg";
-const threOfSwords = "card_pics/Swords03.jpg";
-const fourOfSwords = "card_pics/Swords04.jpg";
-const fiveOfSwords = "card_pics/Swords05.jpg";
-const sixOfSwords = "card_pics/Swords06.jpg";
-const sevenOfSwords = "card_pics/Swords07.jpg";
-const eightOfSwords = "card_pics/Swords08.jpg";
-const nineOfSwords = "card_pics/Swords09.jpg";
-const tenOfSwords = "card_pics/Swords10.jpg";
-const pageOfSwords = "card_pics/Swords11.jpg";
-const knightOfSwords = "card_pics/Swords12.jpg";
-const queenOfSwords = "card_pics/Swords13.jpg";
-const kingOfSwords = "card_pics/Swords14.jpg";
-const temperance = "card_pics/temperance.jpg";
-const theHierophant = "card_pics/theHierophant.jpg";
-const tower = "card_pics/tower.jpg";
-const aceofWands = "card_pics/Wands01.jpg";
-const twoOfWands = "card_pics/Wands02.jpg";
-const threOfWands = "card_pics/Wands03.jpg";
-const fourOfWands = "card_pics/Wands04.jpg";
-const fiveOfWands = "card_pics/Wands05.jpg";
-const sixOfWands = "card_pics/Wands06.jpg";
-const sevenOfWands = "card_pics/Wands07.jpg";
-const eightOfWands = "card_pics/Wands08.jpg";
-const nineOfWands = "card_pics/Wands09.jpg";
-const tenOfWands = "card_pics/Wands10.jpg";
-const pageOfWands = "card_pics/Wands11.jpg";
-const knightOfWands = "card_pics/Wands12.jpg";
-const queenOfWands = "card_pics/Wands13.jpg";
-const kingOfWands = "card_pics/Wands14.jpg";
-const wheelOfFortune = "card_pics/wheelOfFortune.jpg";
-const world = "card_pics/world.jp";
+
+const wholeTarotDeck = [
+  { name: "chariot", imagePath: "card_pics/chariot.jpg" },
+  { name: "death", imagePath: "card_pics/death.jpg" },
+  { name: "devil", imagePath: "card_pics/devil.jpg" },
+  { name: "emperor", imagePath: "card_pics/emperor.jpg" },
+  { name: "empress", imagePath: "card_pics/empress.jpg" },
+  { name: "fool", imagePath: "card_pics/fool.jpg" },
+  { name: "hangedMan", imagePath: "card_pics/hangedMan.jpg" },
+  { name: "hermit", imagePath: "card_pics/hermit.jpg" },
+  // { name: "hierophant", imagePath: "card_pics/hierophant.jpg" },
+  { name: "highPriestess", imagePath: "card_pics/highPriestess.jpg" },
+  { name: "judgement", imagePath: "card_pics/judgement.jpg" },
+  { name: "justice", imagePath: "card_pics/justice.jpg" },
+  { name: "lovers", imagePath: "card_pics/lovers.jpg" },
+  { name: "magician", imagePath: "card_pics/magician.jpg" },
+  { name: "moon", imagePath: "card_pics/moon.jpg" },
+  { name: "star", imagePath: "card_pics/star.jpg" },
+  { name: "strength", imagePath: "card_pics/strength.jpg" },
+  { name: "sun", imagePath: "card_pics/sun.jpg" },
+  { name: "temperance", imagePath: "card_pics/temperance.jpg" },
+  { name: "hierophant", imagePath: "card_pics/theHierophant.jpg" },
+  { name: "tower", imagePath: "card_pics/tower.jpg" },
+  { name: "wheelOfFortune", imagePath: "card_pics/wheelOfFortune.jpg" },
+  { name: "world", imagePath: "card_pics/world.jpg" },
+  { name: "aceOfCups", imagePath: "card_pics/Cups01.jpg" },
+  { name: "twoOfCups", imagePath: "card_pics/Cups02.jpg" },
+  { name: "threeOfCups", imagePath: "card_pics/Cups03.jpg" },
+  { name: "fourOfCups", imagePath: "card_pics/Cups04.jpg" },
+  { name: "fiveOfCups", imagePath: "card_pics/Cups05.jpg" },
+  { name: "sixOfCups", imagePath: "card_pics/Cups06.jpg" },
+  { name: "sevenOfCups", imagePath: "card_pics/Cups07.jpg" },
+  { name: "eightOfCups", imagePath: "card_pics/Cups08.jpg" },
+  { name: "nineOfCups", imagePath: "card_pics/Cups09.jpg" },
+  { name: "tenOfCups", imagePath: "card_pics/Cups10.jpg" },
+  { name: "pageOfCups", imagePath: "card_pics/Cups11.jpg" },
+  { name: "knightOfCups", imagePath: "card_pics/Cups12.jpg" },
+  { name: "queenOfCups", imagePath: "card_pics/Cups13.jpg" },
+  { name: "kingOfCups", imagePath: "card_pics/Cups14.jpg" },
+  { name: "aceOfPents", imagePath: "card_pics/Pents01.jpg" },
+  { name: "twoOfPents", imagePath: "card_pics/Pents02.jpg" },
+  { name: "threeOfPents", imagePath: "card_pics/Pents03.jpg" },
+  { name: "fourOfPents", imagePath: "card_pics/Pents04.jpg" },
+  { name: "fiveOfPents", imagePath: "card_pics/Pents05.jpg" },
+  { name: "sixOfPents", imagePath: "card_pics/Pents06.jpg" },
+  { name: "sevenOfPents", imagePath: "card_pics/Pents07.jpg" },
+  { name: "eightOfPents", imagePath: "card_pics/Pents08.jpg" },
+  { name: "nineOfPents", imagePath: "card_pics/Pents09.jpg" },
+  { name: "tenOfPents", imagePath: "card_pics/Pents10.jpg" },
+  { name: "pageOfPents", imagePath: "card_pics/Pents11.jpg" },
+  { name: "knightOfPents", imagePath: "card_pics/Pents12.jpg" },
+  { name: "queenOfPents", imagePath: "card_pics/Pents13.jpg" },
+  { name: "kingOfPents", imagePath: "card_pics/Pents14.jpg" },
+  { name: "aceOfSwords", imagePath: "card_pics/Swords01.jpg" },
+  { name: "twoOfSwords", imagePath: "card_pics/Swords02.jpg" },
+  { name: "threeOfSwords", imagePath: "card_pics/Swords03.jpg" },
+  { name: "fourOfSwords", imagePath: "card_pics/Swords04.jpg" },
+  { name: "fiveOfSwords", imagePath: "card_pics/Swords05.jpg" },
+  { name: "sixOfSwords", imagePath: "card_pics/Swords06.jpg" },
+  { name: "sevenOfSwords", imagePath: "card_pics/Swords07.jpg" },
+  { name: "eightOfSwords", imagePath: "card_pics/Swords08.jpg" },
+  { name: "nineOfSwords", imagePath: "card_pics/Swords09.jpg" },
+  { name: "tenOfSwords", imagePath: "card_pics/Swords10.jpg" },
+  { name: "pageOfSwords", imagePath: "card_pics/Swords11.jpg" },
+  { name: "knightOfSwords", imagePath: "card_pics/Swords12.jpg" },
+  { name: "queenOfSwords", imagePath: "card_pics/Swords13.jpg" },
+  { name: "kingOfSwords", imagePath: "card_pics/Swords14.jpg" },
+  { name: "aceOfWands", imagePath: "card_pics/Wands01.jpg" },
+  { name: "twoOfWands", imagePath: "card_pics/Wands02.jpg" },
+  { name: "threeOfWands", imagePath: "card_pics/Wands03.jpg" },
+  { name: "fourOfWands", imagePath: "card_pics/Wands04.jpg" },
+  { name: "fiveOfWands", imagePath: "card_pics/Wands05.jpg" },
+  { name: "sixOfWands", imagePath: "card_pics/Wands06.jpg" },
+  { name: "sevenOfWands", imagePath: "card_pics/Wands07.jpg" },
+  { name: "eightOfWands", imagePath: "card_pics/Wands08.jpg" },
+  { name: "nineOfWands", imagePath: "card_pics/Wands09.jpg" },
+  { name: "tenOfWands", imagePath: "card_pics/Wands10.jpg" },
+  { name: "pageOfWands", imagePath: "card_pics/Wands11.jpg" },
+  { name: "knightOfWands", imagePath: "card_pics/Wands12.jpg" },
+  { name: "queenOfWands", imagePath: "card_pics/Wands13.jpg" },
+  { name: "kingOfWands", imagePath: "card_pics/Wands14.jpg" },
+];
 
 // ###############################
 
@@ -90,8 +93,13 @@ const overlay = document.querySelector(".overlay");
 const modal = document.querySelector(".modal");
 const bottomRight = document.querySelector(".bottom-right");
 const modalCards = document.querySelector(".modal-card");
-let rowValue = 0;
-let columnValue = 0;
+const cardListed = document.querySelector(".collected");
+let rowValue = 0; // input for the Row
+let columnValue = 0; // Input for the Columns
+myDeck = [];
+let nextPic = 0;
+let numsOfCards;
+let cardStance;
 
 // hidding certain views until button is pressed
 centerCard.classList.add("hidden");
@@ -139,15 +147,216 @@ document.querySelector(".columns").addEventListener("click", function () {
   }
 });
 
+//
+//
+//
+////////// Tarot Card Logic ///////////////
+
+const findCardByName = function (cardName) {
+  return wholeTarotDeck.find((card) => card.name === cardName);
+};
+
+function uprightReversed() {
+  const card = Math.floor(Math.random() * 2);
+  return card === 1 ? "Upright" : "Reverse";
+}
+
+function majOrMin() {
+  const probi = Math.floor(Math.random() * 19);
+  if (probi >= 0 && probi <= 11) {
+    return "Minor";
+  } else if (probi >= 12 && probi <= 18) {
+    return "Major";
+  }
+}
+
+function courtOrCrowd() {
+  const probi = Math.floor(Math.random() * 19);
+  if (probi >= 0 && probi < 12) {
+    return "Crowd";
+  } else {
+    return "Court";
+  }
+}
+
+function suitePull(suiteR) {
+  const court = ["king", "queen", "knight", "page"];
+  const crowd = [
+    "ace",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
+    "ten",
+  ];
+  if (suiteR === "Crowd") {
+    return crowd[Math.floor(Math.random() * 10)];
+  } else if (suiteR === "Court") {
+    return court[Math.floor(Math.random() * 4)];
+  }
+}
+
+function cardPull(cardR, suiteR) {
+  const Major = [
+    "fool",
+    "magician",
+    "highPriestess",
+    "empress",
+    "emperor",
+    "hierophant",
+    "lovers",
+    "chariot",
+    "strength",
+    "hermit",
+    "wheelOfFortune",
+    "justice",
+    "hangedMan",
+    "death",
+    "temperance",
+    "devil",
+    "tower",
+    "star",
+    "moon",
+    "sun",
+    "judgement",
+    "world",
+  ];
+
+  const Minor = ["Swords", "Cups", "Wands", "Pents"];
+
+  if (cardR === "Minor") {
+    let minCard =
+      suitePull(suiteR) +
+      "Of" +
+      Minor[Math.floor(Math.random() * Minor.length)];
+    // console.log(minCard);
+    return findCardByName(minCard);
+  } else if (cardR === "Major") {
+    let index = Math.floor(Math.random() * Major.length);
+    // console.log(Major[index]);
+    return findCardByName(Major[index]);
+  }
+}
+
+function cardCall() {
+  let row = rowValue;
+  let newrange = 0;
+
+  for (let r = 1; r <= row; r++) {
+    let column = columnValue;
+    for (let c = 1; c <= column; c++) {
+      newrange++;
+    }
+  }
+}
+
+function logic() {
+  myDeck = [];
+  numsOfCards = rowValue * columnValue;
+
+  while (myDeck.length < numsOfCards) {
+    let suiteR = courtOrCrowd();
+    let cardR = majOrMin();
+    let result = cardPull(cardR, suiteR);
+
+    if (myDeck.includes(result)) {
+      continue;
+    } else {
+      myDeck.push(result);
+    }
+  }
+}
+
+const flipCards = function () {
+  if (rowValue && columnValue) {
+    centerCard.classList.remove("hidden");
+    logic();
+
+    if (uprightReversed() === "Reverse") {
+      cardStance = "Reverse";
+      centerCard.src = myDeck[0].imagePath;
+      centerCard.style.transform = "scaleY(-1)";
+    } else if (uprightReversed() === "Upright") {
+      cardStance = "Upright";
+      centerCard.src = myDeck[0].imagePath;
+      centerCard.style.transform = "scaleY(1)";
+    }
+
+    if (nextPic == numsOfCards) {
+      console.log("All cards have been shown");
+      document
+        .querySelector(".next-card")
+        .removeEventListener("click", flipCards);
+    } else if (nextPic !== numsOfCards) {
+      console.log(nextPic);
+
+      if (uprightReversed() === "Reverse") {
+        cardStance = "Reverse";
+        centerCard.style.transform = "scaleY(-1)";
+      } else if (uprightReversed() === "Upright") {
+        cardStance = "Upright";
+        centerCard.style.transform = "scaleY(1)";
+      }
+      centerCard.src = myDeck[nextPic].imagePath;
+      cardListed.textContent +=
+        `\r\n` + myDeck[nextPic].name + cardStance + `\r\n` + `\r\n`;
+      ++nextPic;
+    }
+  }
+};
+
+document.querySelector(".next-card").addEventListener("click", flipCards);
+
+////////////////////////////////////////////////
+
 // Modal and overlay hidden and not hidden when pressing the view cards button
 modalOverlayBtn.addEventListener("click", function () {
   overlay.classList.toggle("hidden");
   modal.classList.toggle("hidden");
   bottomRight.classList.toggle("hidden");
 
-  //will turn "modalCards" into an input for rows
-  for (let i = 0; i < modalCards; ++i) {
-    let cardRows = document.querySelector(`.row${i}`);
+  // will turn "modalCards" into an input for rows
+  for (let r = 1; r <= rowValue; ++r) {
+    let cardRows = document.querySelector(`.row${r}`);
     cardRows.classList.toggle("hidden");
   }
 });
+
+/////////////////////////////////////////////////
+
+// for (let c = 1; c < columnValue + 1; ++c) {
+//   let parent = document.getElementById("#showcase");
+//   parent.insertAdjacentElement(`afterend`, `<img">`);
+//   // child.classList.add(`.row${r}`);
+//   cardRows.src = myDeck[r * c].imagePath;
+//   cardRows.alt = "tarot card";
+//   let x = document.createElement("img");
+//   let t = x.classList.add(`.row${r}`);
+//   let y = t.src.append(myDeck[nextPic].imagePath);
+//   document.querySelector(".model-content").appendChild(y);
+// }
+// HOW WILL YOU IMPLEMENT THE CARDS FROM EACH ROW INTO THE MODAL???!!!!!!
+// THINK BOY THINK!!!
+
+/////////////////////////////////////////////////
+
+// let curs = document.querySelector(".cursor");
+
+// document.addEventListener("mousemove", (e) => {
+//   let x = e.pageX;
+//   let y = e.pageY;
+//   curs.style.left = x - 22 + "px";
+//   curs.style.top = y - 22 + "px";
+// });
+
+// document.addEventListener("mouseleave", (e) => {
+//   let x = e.pageX;
+//   let y = e.pageY;
+//   curs.style.left = x - 22 + "px";
+//   curs.style.top = y - 22 + "px";
+// });
+///////////////////////////////////////////////
