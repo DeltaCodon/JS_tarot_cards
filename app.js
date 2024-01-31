@@ -319,7 +319,7 @@ modalOverlayBtn.addEventListener("click", function () {
   for (let r = 1; r < rowValue + 1; r++) {
     for (let c = 1; c < columnValue + 1; c++) {
       let images = document.querySelector(`.row${newrange}`);
-      cardRows.classList.toggle("hidden");
+      images.classList.toggle("hidden");
       // assign the img tags with src from an array containing file path to tarot card pictures
       images.src = myDeck[newrange++ - 1].imagePath;
     }
