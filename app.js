@@ -94,9 +94,10 @@ const modal = document.querySelector(".modal");
 const bottomRight = document.querySelector(".bottom-right");
 const modalCards = document.querySelector(".modal-card");
 const cardListed = document.querySelector(".collected");
+const imgContainer = document.getElementById("#images");
 let rowValue = 0; // input for the Row
 let columnValue = 0; // Input for the Columns
-myDeck = [];
+let myDeck = [];
 let nextPic = 0;
 let numsOfCards;
 let cardStance;
@@ -152,6 +153,7 @@ document.querySelector(".columns").addEventListener("click", function () {
 //
 ////////// Tarot Card Logic ///////////////
 
+// function to return a image path name when using the regualr string equivalent
 const findCardByName = function (cardName) {
   return wholeTarotDeck.find((card) => card.name === cardName);
 };
@@ -242,18 +244,7 @@ function cardPull(cardR, suiteR) {
   }
 }
 
-function cardCall() {
-  let row = rowValue;
-  let newrange = 0;
-
-  for (let r = 1; r <= row; r++) {
-    let column = columnValue;
-    for (let c = 1; c <= column; c++) {
-      newrange++;
-    }
-  }
-}
-
+// The card factory for the deck
 function logic() {
   myDeck = [];
   numsOfCards = rowValue * columnValue;
@@ -269,12 +260,22 @@ function logic() {
       myDeck.push(result);
     }
   }
+  console.log(myDeck);
 }
 
+// determines if a card is upright or upside down
 const flipCards = function () {
-  if (rowValue && columnValue) {
-    centerCard.classList.remove("hidden");
-    logic();
+  if (nextPic === numsOfCards) {
+    console.log("All cards have been shown");
+    document
+      .querySelector(".next-card")
+      .removeEventListener("click", flipCards);
+  } else if (nextPic !== numsOfCards) {
+    console.log(nextPic);
+
+    if (rowValue && columnValue) {
+      centerCard.classList.remove("hidden");
+    }
 
     if (uprightReversed() === "Reverse") {
       cardStance = "Reverse";
@@ -286,29 +287,23 @@ const flipCards = function () {
       centerCard.style.transform = "scaleY(1)";
     }
 
-    if (nextPic == numsOfCards) {
-      console.log("All cards have been shown");
-      document
-        .querySelector(".next-card")
-        .removeEventListener("click", flipCards);
-    } else if (nextPic !== numsOfCards) {
-      console.log(nextPic);
-
-      if (uprightReversed() === "Reverse") {
-        cardStance = "Reverse";
-        centerCard.style.transform = "scaleY(-1)";
-      } else if (uprightReversed() === "Upright") {
-        cardStance = "Upright";
-        centerCard.style.transform = "scaleY(1)";
-      }
-      centerCard.src = myDeck[nextPic].imagePath;
-      cardListed.textContent +=
-        `\r\n` + myDeck[nextPic].name + cardStance + `\r\n` + `\r\n`;
-      ++nextPic;
+    if (uprightReversed() === "Reverse") {
+      cardStance = "Reverse";
+      centerCard.style.transform = "scaleY(-1)";
+    } else if (uprightReversed() === "Upright") {
+      cardStance = "Upright";
+      centerCard.style.transform = "scaleY(1)";
     }
+    centerCard.src = myDeck[nextPic].imagePath;
+
+    // adds the cards and is standing position to a box in the lower left of the webpage.
+    cardListed.textContent +=
+      `\r\n` + myDeck[nextPic].name + cardStance + `\r\n`;
+    nextPic++;
   }
 };
 
+document.querySelector(".make-deck").addEventListener("click", logic);
 document.querySelector(".next-card").addEventListener("click", flipCards);
 
 ////////////////////////////////////////////////
@@ -318,27 +313,19 @@ modalOverlayBtn.addEventListener("click", function () {
   overlay.classList.toggle("hidden");
   modal.classList.toggle("hidden");
   bottomRight.classList.toggle("hidden");
+  let newrange = 1;
 
-  // will turn "modalCards" into an input for rows
-  for (let r = 1; r <= rowValue; ++r) {
-    let cardRows = document.querySelector(`.row${r}`);
-    cardRows.classList.toggle("hidden");
+  // this loop will unhide the cards modal that has tarot cards in it
+  for (let r = 1; r < rowValue + 1; r++) {
+    for (let c = 1; c < columnValue + 1; c++) {
+      let images = document.querySelector(`.row${newrange}`);
+      cardRows.classList.toggle("hidden");
+      // assign the img tags with src from an array containing file path to tarot card pictures
+      images.src = myDeck[newrange++ - 1].imagePath;
+    }
   }
 });
 
-/////////////////////////////////////////////////
-
-// for (let c = 1; c < columnValue + 1; ++c) {
-//   let parent = document.getElementById("#showcase");
-//   parent.insertAdjacentElement(`afterend`, `<img">`);
-//   // child.classList.add(`.row${r}`);
-//   cardRows.src = myDeck[r * c].imagePath;
-//   cardRows.alt = "tarot card";
-//   let x = document.createElement("img");
-//   let t = x.classList.add(`.row${r}`);
-//   let y = t.src.append(myDeck[nextPic].imagePath);
-//   document.querySelector(".model-content").appendChild(y);
-// }
 // HOW WILL YOU IMPLEMENT THE CARDS FROM EACH ROW INTO THE MODAL???!!!!!!
 // THINK BOY THINK!!!
 
