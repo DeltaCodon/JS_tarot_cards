@@ -109,42 +109,52 @@ modal.classList.add("hidden");
 bottomRight.classList.add("hidden");
 
 // to store the input from row input with the rows button
-document.querySelector(".rows").addEventListener("click", function () {
-  let inputValue = Number(document.querySelector(".row").value);
+document.querySelector(".row").addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    let inputValue = Number(document.querySelector(".row").value);
 
-  if (inputValue == 1) {
-    rowValue = inputValue;
-    document.querySelector(
-      ".top-page2"
-    ).textContent = `You picked ${inputValue} row`;
-  } else if (inputValue > 1 && inputValue < 6) {
-    rowValue = inputValue;
-    document.querySelector(
-      ".top-page2"
-    ).textContent = `You picked ${inputValue} rows`;
-  } else {
-    document.querySelector(".top-page2").textContent =
-      "<< You didn't chose a number from 1 - 5. Try again...";
+    if (inputValue == 1) {
+      rowValue = inputValue;
+      document.querySelector(
+        ".top-page2"
+      ).textContent = `You picked ${inputValue} row`;
+    } else if (inputValue > 1 && inputValue < 6) {
+      rowValue = inputValue;
+      document.querySelector(
+        ".top-page2"
+      ).textContent = `You picked ${inputValue} rows`;
+    } else {
+      document.querySelector(".top-page2").textContent =
+        "<< You didn't chose a number from 1 - 5. Try again...";
+    }
+    if (rowValue && columnValue) {
+      logic();
+    }
   }
 });
 
 // to store the input from the column input with the columns button
-document.querySelector(".columns").addEventListener("click", function () {
-  let inputValue = Number(document.querySelector(".column").value);
+document.querySelector(".column").addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    let inputValue = Number(document.querySelector(".column").value);
 
-  if (inputValue == 1) {
-    columnValue = inputValue;
-    document.querySelector(
-      ".top-right2"
-    ).textContent = `You pick ${inputValue} card for this row!`;
-  } else if (inputValue === 3 || inputValue === 5) {
-    columnValue = inputValue;
-    document.querySelector(
-      ".top-right2"
-    ).textContent = `You pick ${inputValue} cards for this row!`;
-  } else {
-    document.querySelector(".top-right2").textContent =
-      "You didn't choose a number from 1, 3, or 5. Try again...";
+    if (inputValue == 1) {
+      columnValue = inputValue;
+      document.querySelector(
+        ".top-right2"
+      ).textContent = `You pick ${inputValue} card for this row!`;
+    } else if (inputValue === 3 || inputValue === 5) {
+      columnValue = inputValue;
+      document.querySelector(
+        ".top-right2"
+      ).textContent = `You pick ${inputValue} cards for this row!`;
+    } else {
+      document.querySelector(".top-right2").textContent =
+        "You didn't choose a number from 1, 3, or 5. Try again...";
+    }
+    if (rowValue && columnValue) {
+      logic();
+    }
   }
 });
 
@@ -315,7 +325,7 @@ const startReading = function () {
   cardListed.textContent = "";
 };
 
-document.querySelector(".make-deck").addEventListener("click", logic);
+// make buttons go work-o
 document.querySelector(".next-card").addEventListener("click", flipCards);
 document.querySelector(".new").addEventListener("click", startReading);
 
@@ -328,13 +338,34 @@ modalOverlayBtn.addEventListener("click", function () {
   bottomRight.classList.toggle("hidden");
   let newrange = 1;
 
+  // keydown for eventlistener so we can exit the modal
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      if (!modal.classList.contains("hidden")) {
+        overlay.classList.add("hidden");
+        modal.classList.add("hidden");
+        bottomRight.classList.add("hidden");
+        // images.classList.add("hidden");
+      }
+    }
+  });
+
   // this loop will unhide the cards modal that has tarot cards in it
   for (let r = 1; r < rowValue + 1; r++) {
     for (let c = 1; c < columnValue + 1; c++) {
       let images = document.querySelector(`.row${newrange}`);
-      images.classList.toggle("hidden");
+      images.classList.remove("hidden");
       // assign the img tags with src from an array containing file path to tarot card pictures
       images.src = myDeck[newrange++ - 1].imagePath;
+
+      // card facing:
+      if (uprightReversed() === "Reverse") {
+        cardStance = "Reverse";
+        images.style.transform = "scaleY(-1)";
+      } else if (uprightReversed() === "Upright") {
+        images = "Upright";
+        centerCard.style.transform = "scaleY(1)";
+      }
     }
   }
 });
