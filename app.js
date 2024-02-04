@@ -279,16 +279,6 @@ const flipCards = function () {
 
     if (uprightReversed() === "Reverse") {
       cardStance = "Reverse";
-      centerCard.src = myDeck[0].imagePath;
-      centerCard.style.transform = "scaleY(-1)";
-    } else if (uprightReversed() === "Upright") {
-      cardStance = "Upright";
-      centerCard.src = myDeck[0].imagePath;
-      centerCard.style.transform = "scaleY(1)";
-    }
-
-    if (uprightReversed() === "Reverse") {
-      cardStance = "Reverse";
       centerCard.style.transform = "scaleY(-1)";
     } else if (uprightReversed() === "Upright") {
       cardStance = "Upright";
@@ -299,12 +289,35 @@ const flipCards = function () {
     // adds the cards and is standing position to a box in the lower left of the webpage.
     cardListed.textContent +=
       `\r\n` + myDeck[nextPic].name + cardStance + `\r\n`;
-    nextPic++;
   }
+  nextPic++;
+};
+
+// Reset button to make this all work again:
+const startReading = function () {
+  rowValue = undefined; // input for the Row
+  columnValue = undefined; // Input for the Columns
+  myDeck = [];
+  nextPic = 0;
+  numsOfCards = undefined;
+  cardStance = "";
+  document.querySelector(".row").value = "";
+  document.querySelector(".row").placeholder = "1-5";
+  document.querySelector(".column").value = "";
+  document.querySelector(".column").placeholder = "1, 3, or 5";
+  document.querySelector(".top-page2").textContent =
+    "<< You picked no number yet";
+  document.querySelector(".top-right2").textContent =
+    "You currently have 0 cards >>";
+  centerCard.src = "";
+  centerCard.classList.add("hidden");
+  document.querySelector(".next-card").addEventListener("click", flipCards);
+  cardListed.textContent = "";
 };
 
 document.querySelector(".make-deck").addEventListener("click", logic);
 document.querySelector(".next-card").addEventListener("click", flipCards);
+document.querySelector(".new").addEventListener("click", startReading);
 
 ////////////////////////////////////////////////
 
@@ -325,9 +338,6 @@ modalOverlayBtn.addEventListener("click", function () {
     }
   }
 });
-
-// HOW WILL YOU IMPLEMENT THE CARDS FROM EACH ROW INTO THE MODAL???!!!!!!
-// THINK BOY THINK!!!
 
 /////////////////////////////////////////////////
 
