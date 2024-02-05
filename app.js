@@ -172,6 +172,7 @@ const findCardByName = function (cardName) {
 
 function uprightReversed() {
   const card = Math.floor(Math.random() * 2);
+
   return card === 1 ? "Upright" : "Reverse";
 }
 
@@ -277,6 +278,7 @@ function logic() {
 
 // determines if a card is upright or upside down
 const flipCards = function () {
+  const positionOfCards = uprightReversed();
   if (nextPic === numsOfCards) {
     console.log("All cards have been shown");
     document
@@ -289,12 +291,14 @@ const flipCards = function () {
       centerCard.classList.remove("hidden");
     }
 
-    if (uprightReversed() === "Reverse") {
+    if (positionOfCards === "Reverse") {
       cardStance = "Reverse";
       centerCard.style.transform = "scaleY(-1)";
-    } else if (uprightReversed() === "Upright") {
+      console.log(positionOfCards);
+    } else if (positionOfCards === "Upright") {
       cardStance = "Upright";
       centerCard.style.transform = "scaleY(1)";
+      console.log(positionOfCards);
     }
     centerCard.src = myDeck[nextPic].imagePath;
 
