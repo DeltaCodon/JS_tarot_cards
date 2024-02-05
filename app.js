@@ -130,6 +130,7 @@ document.querySelector(".row").addEventListener("keydown", function (e) {
     if (rowValue && columnValue) {
       logic();
     }
+    document.querySelector(".column").focus();
   }
 });
 
@@ -155,6 +156,7 @@ document.querySelector(".column").addEventListener("keydown", function (e) {
     if (rowValue && columnValue) {
       logic();
     }
+    document.querySelector(".next-card").focus();
   }
 });
 

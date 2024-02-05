@@ -246,15 +246,20 @@ main {
 
 .bottom-right {
   height: 0px;
+  display: flex;
   /* outline: 5px solid green; */
 }
 
 .modal {
   color: black;
+  /* position: absolute; */
   position: relative;
-  bottom: 50vh;
+  bottom: 90vh;
   left: 50%;
+  height: 129vh;
+  width: 40vw;
   transform: translate(-50%, -50%);
+  overflow: auto;
 
   background-color: rgba(255, 255, 255, 0.208);
   background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
@@ -272,14 +277,15 @@ main {
 
 .modal-content {
   font-size: 2rem;
+  /* overflow: auto; */
   /* display: flex;
   flex-direction: column; */
 }
 
 .modal-card {
   height: 16vh;
-  width: 90px;
-  padding-bottom: 1em;
+  width: 12vh;
+  /* padding-right: 2em; */
 }
 
 .overlay {
